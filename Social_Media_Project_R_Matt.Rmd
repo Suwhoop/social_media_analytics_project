@@ -19,8 +19,7 @@ library(rpart)
 
 ```
 
-#### Bringing in the data, make sure the file is in your active directory 
-##### Also double check the file name is correct High_Note_data.csv
+#### Bringing in the data, file is stored in github so no need to download 
 
 ```{r}
 urlfile<-'https://raw.githubusercontent.com/Suwhoop/social_media_analytics_project/master/High_Note_data.csv'
@@ -30,7 +29,66 @@ data_raw<-read.csv(url(urlfile))
 #### Inital data exploration 
 ```{r}
 head(data_raw) #### we will need to keep NAs in mind (potential omit in some models)
+```
+
+```{r}
 summary(data_raw) #### Looks like there are some significantly negative deltas related to finds 
 ```
 
+```{r}
+data_adopters <- data_raw[data_raw$adopter %in% 1,]
+summary(data_adopters) #### looks like adopters are older, have more friends, and more international friends 
+head(data_adopters)
+```
+
+#### Split Data into Training and Testing
+```{r}
+sample_size = floor(0.7*nrow(data_raw))
+set.seed(777)
+
+# randomly split data
+picked = sample(seq_len(nrow(data_raw)),size = sample_size)
+train_hn =data_raw[picked,]
+test_hn =data_raw[-picked,]
+```
+
+```{r}
+head(train_hn)
+```
+
+```{r}
+logi_model = glm(adopter ~ age + male + friend_cnt + avg_friend_age + avg_friend_male + friend_country_cnt + subscriber_friend_cnt + songsListened + lovedTracks + posts + playlists + shouts, family = binomial, data = train_hn)
+summary(logi_model)
+```
+
+```{r}
+pred.full = predict(logi_model, newdata=test_hn, type="response")
+classify.full = (pred.full > 0.1)
+
+class_prediction = factor(pred.full > 0.1, levels = c(F, T), 
+                             labels = c("Freemium", "Subscriber"))
+
+actual = factor(test_hn$adopter, levels = c(0, 1), 
+                      labels = c("Freemium", "Subscriber"))
+
+cm = table(actual, class_prediction)
+cm
+```
+
+```{r}
+ACC = sum(diag(cm)) / sum(cm) 
+ACC
+
+TPR = cm[2,2] / sum(cm[2,])  
+TPR
+
+FPR = cm[1,2] / sum(cm[1,])
+FPR
+
+TNR = cm[1,1] / sum(cm[1,]) 
+TNR
+
+FNR = cm[2,1] / sum(cm[2,])
+FNR
+```
 
