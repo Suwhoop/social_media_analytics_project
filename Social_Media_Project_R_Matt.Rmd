@@ -1,0 +1,30 @@
+---
+title: "Social Media Analytics Notebook Matt"
+output: html_notebook
+---
+
+#### Add any Libs needed here
+
+```{r}
+library(caTools)
+library(caret)
+library(ROCR)
+library(ggplot2)
+library(dplyr)
+library(rpart.plot)
+```
+
+#### Bringing in the data, make sure the file is in your active directory 
+##### Also double check the file name is correct High_Note_data.csv
+
+```{r}
+raw_data <- read.csv("High_Note_data.csv")
+```
+
+#### Inital data exploration 
+```{r}
+head(raw_data) #### we will need to keep NAs in mind (potential omit in some models)
+summary(raw_data) #### Looks like there are some significantly negative deltas related to finds 
+```
+
+
