@@ -6,25 +6,31 @@ output: html_notebook
 #### Add any Libs needed here
 
 ```{r}
+library(dplyr)
+library(tidyverse)
 library(caTools)
 library(caret)
 library(ROCR)
 library(ggplot2)
-library(dplyr)
 library(rpart.plot)
+library(randomForest)
+library(caret)
+library(rpart)
+
 ```
 
 #### Bringing in the data, make sure the file is in your active directory 
 ##### Also double check the file name is correct High_Note_data.csv
 
 ```{r}
-raw_data <- read.csv("High_Note_data.csv")
+urlfile<-'https://raw.githubusercontent.com/Suwhoop/social_media_analytics_project/master/High_Note_data.csv'
+data_raw<-read.csv(url(urlfile))
 ```
 
 #### Inital data exploration 
 ```{r}
-head(raw_data) #### we will need to keep NAs in mind (potential omit in some models)
-summary(raw_data) #### Looks like there are some significantly negative deltas related to finds 
+head(data_raw) #### we will need to keep NAs in mind (potential omit in some models)
+summary(data_raw) #### Looks like there are some significantly negative deltas related to finds 
 ```
 
 

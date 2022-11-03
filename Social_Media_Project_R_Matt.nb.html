@@ -1767,18 +1767,50 @@ pre code {
 <h4>Add any Libs needed here</h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShjYVRvb2xzKVxubGlicmFyeShjYXJldClcbmxpYnJhcnkoUk9DUilcbmxpYnJhcnkoZ2dwbG90MilcbmxpYnJhcnkoZHBseXIpXG5saWJyYXJ5KHJwYXJ0LnBsb3QpXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShkcGx5cilcbmxpYnJhcnkodGlkeXZlcnNlKVxuYGBgIn0= -->
+<pre class="r"><code>library(dplyr)
+library(tidyverse)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2RzIG92ZXJ3cml0dGVuIGJ5ICdkYnBseXInOlxuICBtZXRob2QgICAgICAgICBmcm9tXG4gIHByaW50LnRibF9sYXp5ICAgICBcbiAgcHJpbnQudGJsX3NxbCAgICAgIFxu4pSA4pSAIEF0dGFjaGluZyBwYWNrYWdlcyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlIDEuMy4xIOKUgOKUgFxu4pyUIHRpYmJsZSAgMy4xLjMgICAgIOKclCBwdXJyciAgIDAuMy40XG7inJQgdGlkeXIgICAxLjIuMCAgICAg4pyUIHN0cmluZ3IgMS40LjBcbuKclCByZWFkciAgIDIuMC4xICAgICDinJQgZm9yY2F0cyAwLjUuMVxu4pSA4pSAIENvbmZsaWN0cyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlX2NvbmZsaWN0cygpIOKUgOKUgFxu4pyWIGRmaWR4OjpmaWx0ZXIoKSBtYXNrcyBkcGx5cjo6ZmlsdGVyKCksIHN0YXRzOjpmaWx0ZXIoKVxu4pyWIGRwbHlyOjpsYWcoKSAgICBtYXNrcyBzdGF0czo6bGFnKClcbuKcliBwdXJycjo6bGlmdCgpICAgbWFza3MgY2FyZXQ6OmxpZnQoKVxuIn0= -->
+<pre><code>Registered S3 methods overwritten by &#39;dbplyr&#39;:
+  method         from
+  print.tbl_lazy     
+  print.tbl_sql      
+── Attaching packages ──────────────────────────────────────────────────────────────────────── tidyverse 1.3.1 ──
+✔ tibble  3.1.3     ✔ purrr   0.3.4
+✔ tidyr   1.2.0     ✔ stringr 1.4.0
+✔ readr   2.0.1     ✔ forcats 0.5.1
+── Conflicts ─────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dfidx::filter() masks dplyr::filter(), stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+✖ purrr::lift()   masks caret::lift()</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShjYVRvb2xzKVxubGlicmFyeShjYXJldClcbmxpYnJhcnkoUk9DUilcbmxpYnJhcnkoZ2dwbG90MilcbmxpYnJhcnkocnBhcnQucGxvdClcbmxpYnJhcnkocmFuZG9tRm9yZXN0KVxuYGBgIn0= -->
 <pre class="r"><code>library(caTools)
 library(caret)
 library(ROCR)
 library(ggplot2)
-library(dplyr)
-library(rpart.plot)</code></pre>
+library(rpart.plot)
+library(randomForest)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTG9hZGluZyByZXF1aXJlZCBwYWNrYWdlOiBycGFydFxuV2FybmluZzogcGFja2FnZSDigJhycGFydOKAmSB3YXMgYnVpbHQgdW5kZXIgUiB2ZXJzaW9uIDQuMS4yXG4ifQ== -->
-<pre><code>Loading required package: rpart
-Warning: package ‘rpart’ was built under R version 4.1.2</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoicmFuZG9tRm9yZXN0IDQuNi0xNFxuVHlwZSByZk5ld3MoKSB0byBzZWUgbmV3IGZlYXR1cmVzL2NoYW5nZXMvYnVnIGZpeGVzLlxuXG5BdHRhY2hpbmcgcGFja2FnZTog4oCYcmFuZG9tRm9yZXN04oCZXG5cblRoZSBmb2xsb3dpbmcgb2JqZWN0IGlzIG1hc2tlZCBmcm9tIOKAmHBhY2thZ2U6ZHBseXLigJk6XG5cbiAgICBjb21iaW5lXG5cblRoZSBmb2xsb3dpbmcgb2JqZWN0IGlzIG1hc2tlZCBmcm9tIOKAmHBhY2thZ2U6Z2dwbG90MuKAmTpcblxuICAgIG1hcmdpblxuIn0= -->
+<pre><code>randomForest 4.6-14
+Type rfNews() to see new features/changes/bug fixes.
+
+Attaching package: ‘randomForest’
+
+The following object is masked from ‘package:dplyr’:
+
+    combine
+
+The following object is masked from ‘package:ggplot2’:
+
+    margin</code></pre>
 <!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShjYXJldClcbmxpYnJhcnkocnBhcnQpXG5gYGAifQ== -->
+<pre class="r"><code>library(caret)
+library(rpart)</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -1789,6 +1821,19 @@ directory</h4>
 <h5>Also double check the file name is correct High_Note_data.csv</h5>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudXJsZmlsZTwtJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9TdXdob29wL3NvY2lhbF9tZWRpYV9hbmFseXRpY3NfcHJvamVjdC9tYXN0ZXIvSGlnaF9Ob3RlX2RhdGEuY3N2J1xuZGF0YV9yYXc8LXJlYWQuY3N2KHVybCh1cmxmaWxlKSlcbmBgYCJ9 -->
+<pre class="r"><code>urlfile&lt;-&#39;https://raw.githubusercontent.com/Suwhoop/social_media_analytics_project/master/High_Note_data.csv&#39;
+data_raw&lt;-read.csv(url(urlfile))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZyBpbiBmb3IgKGkgaW4gKDFMOmNvbHMpW2RvXSkgeyA6XG4gIGNsb3NpbmcgdW51c2VkIGNvbm5lY3Rpb24gNCAoaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL1N1d2hvb3Avc29jaWFsX21lZGlhX2FuYWx5dGljc19wcm9qZWN0L21hc3Rlci9IaWdoX05vdGVfZGF0YS5jc3YpXG5XYXJuaW5nIGluIGZvciAoaSBpbiAoMUw6Y29scylbZG9dKSB7IDpcbiAgY2xvc2luZyB1bnVzZWQgY29ubmVjdGlvbiAzIChodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vU3V3aG9vcC9zb2NpYWxfbWVkaWFfYW5hbHl0aWNzX3Byb2plY3QvbWFzdGVyL0hpZ2hfTm90ZV9kYXRhLmNzdilcbiJ9 -->
+<pre><code>Warning in for (i in (1L:cols)[do]) { :
+  closing unused connection 4 (https://raw.githubusercontent.com/Suwhoop/social_media_analytics_project/master/High_Note_data.csv)
+Warning in for (i in (1L:cols)[do]) { :
+  closing unused connection 3 (https://raw.githubusercontent.com/Suwhoop/social_media_analytics_project/master/High_Note_data.csv)</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGY8LXJlYWQuY3N2KHVybCh1cmxmaWxlKSlcbmBgYCJ9 -->
+<pre class="r"><code>df&lt;-read.csv(url(urlfile))</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -1797,19 +1842,82 @@ directory</h4>
 <h4>Inital data exploration</h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6NiwibmNvbCI6MzgsInN1bW1hcnkiOnsiRGVzY3JpcHRpb24iOlsiZGYgWzYgw5cgMzhdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQTcxV1RXalVRQlNlYlBlbkczZlgyajhRQkVYcmdvY3VOclZhc1hiM0lFSkJQRWhYQ2dwTG1xUzdzV215NUtmYWswWEVneFFQUmZFb2VQWWlxQmNQQmJIZ3pZcy9oNEtJTFlnbmk1Njh0TDdaekdTVDJXUzNJRGp3TWpQZk4rL052RGQ1TDdseVlXYVVuK0VSUWwwb3pzRXpBVU9VS0U5ZkhCNUhLQjZEQ1lmaUtJMzdXMEQzd1NBUDBnT1NKRVRhVm5YeHh0aFo0U1FCZUF4bzRpdzhDYklQSXd1aVZGTjFoVUFaRnpKTjFiRHQ0RExIVWxXVlFOMFlxbzhJb3pETzRrMlg0WUVGMmlESVlUSStSbm5VNUJFenBueC93MTJ3VFhEd0cyRlBjNWd2VFU0TnJWNWJlVnVhZERWTHAxZW5obGJ5NnUxdFBFczlwWDFwd3JQYjBDdCtmemkyOWVQeWVQRmp1VHo5NStWZ2NXUGgxY2JtM1MyNnZyanRMcWE5N3p3NWNnYU9PUS9sT1JUZUNIL2tDOWgvak5EeHp3alZmZ0wyT3NoejE4bjhEVWltVlQreXNmdXo1NkE4RmhwUGZPNFV3M2RIK09ER2JmUDl4TzkzeisrVU1rR1NqVGVydDNiLzE3MzFaMlp1YmIxY3ZwcDU5SUhWYStOUFBOeGRsOStGMW82SHQzU3VQWThtT3ZCUjdYL3g1MENPa3Y0TXlDa1V6Qjl1MlYzZnVMUGxFUHMrTEpTUGFPNTlmNExFZUhFaVRjSGlOOGkzM1BrSDdIMFh2d2Ixb296dTRiNDc1RTlIL3NrLzZrZTFUand1eTE2OVl3VjF2STlBOVU1QVlWVXM1RmJ1UEMydXVtSlhIRXN4eWJ4THJOTHlIRjhRTlRybTUweFYwZVdLcE5OQ25STVhxeFdDTm5YMisxQ2ZlaTlWTnh6ZE5wZDhaZ1lzWjlhU1RIVldNU3N0ZTJRdFE2OWFsMVRMVm5SRnBsOEl6VmhVNUdsVGxPWXQ2bG5kc0d3NlNkYzFjVWxUbTBEU3FobU9OenNnSzVvdGpyUnVOa0NJVUw4R1cwbWZld2NabXkxZUhpSUwyam5iVDllRStOeEx1RmJYTTRUeFI2Q0hZa3dnc25RSGZ6eFNvbXpVYmUvK2s3Q3RZM3BmNktwaGVQNFFySTlZQ2FIYzJBcFJzUlhheFZab0cxdWhVMnlGUGNSV2FCTmJJVEsyUWtoc2hZallDc0hZOWhFd0VLcGdVcVpONDJhQkppYk81aGpKM2lTYnZaSW1XalI3S2NqTG9pMFc1a3pRaDlrT281S0NpMVVOSFpSaStLY3R3U2h6SmdQME9EbytpVHdzMVJ4OWZuaEVJQVdJL3Boa1NaLzBqZlB1bnJGZFlpdEIzeU5GcnpiLzlCTHdLNmhvdEhLQXl3MlBDM1ZUOWE2SUI5UXEySVl0MG5XOFpHZ1VhVGlIZHY0Q1FqVTQ3NndLQUFBPSJ9 -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["net_user"],"name":[1],"type":["chr"],"align":["left"]},{"label":["age"],"name":[2],"type":["int"],"align":["right"]},{"label":["male"],"name":[3],"type":["int"],"align":["right"]},{"label":["friend_cnt"],"name":[4],"type":["int"],"align":["right"]},{"label":["avg_friend_age"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["avg_friend_male"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["friend_country_cnt"],"name":[7],"type":["int"],"align":["right"]},{"label":["subscriber_friend_cnt"],"name":[8],"type":["int"],"align":["right"]},{"label":["songsListened"],"name":[9],"type":["int"],"align":["right"]},{"label":["lovedTracks"],"name":[10],"type":["int"],"align":["right"]},{"label":["posts"],"name":[11],"type":["int"],"align":["right"]},{"label":["playlists"],"name":[12],"type":["int"],"align":["right"]},{"label":["shouts"],"name":[13],"type":["int"],"align":["right"]},{"label":["delta1_friend_cnt"],"name":[14],"type":["int"],"align":["right"]},{"label":["delta1_avg_friend_age"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["delta1_avg_friend_male"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["delta1_friend_country_cnt"],"name":[17],"type":["int"],"align":["right"]},{"label":["delta1_subscriber_friend_cnt"],"name":[18],"type":["int"],"align":["right"]},{"label":["delta1_songsListened"],"name":[19],"type":["int"],"align":["right"]},{"label":["delta1_lovedTracks"],"name":[20],"type":["int"],"align":["right"]},{"label":["delta1_posts"],"name":[21],"type":["int"],"align":["right"]},{"label":["delta1_playlists"],"name":[22],"type":["int"],"align":["right"]},{"label":["delta1_shouts"],"name":[23],"type":["int"],"align":["right"]},{"label":["adopter"],"name":[24],"type":["int"],"align":["right"]},{"label":["tenure"],"name":[25],"type":["int"],"align":["right"]},{"label":["good_country"],"name":[26],"type":["int"],"align":["right"]},{"label":["delta1_good_country"],"name":[27],"type":["int"],"align":["right"]},{"label":["delta2_friend_cnt"],"name":[28],"type":["int"],"align":["right"]},{"label":["delta2_avg_friend_age"],"name":[29],"type":["dbl"],"align":["right"]},{"label":["delta2_avg_friend_male"],"name":[30],"type":["dbl"],"align":["right"]},{"label":["delta2_friend_country_cnt"],"name":[31],"type":["int"],"align":["right"]},{"label":["delta2_subscriber_friend_cnt"],"name":[32],"type":["int"],"align":["right"]},{"label":["delta2_songsListened"],"name":[33],"type":["int"],"align":["right"]},{"label":["delta2_lovedTracks"],"name":[34],"type":["int"],"align":["right"]},{"label":["delta2_posts"],"name":[35],"type":["int"],"align":["right"]},{"label":["delta2_playlists"],"name":[36],"type":["int"],"align":["right"]},{"label":["delta2_shouts"],"name":[37],"type":["lgl"],"align":["right"]},{"label":["delta2_good_country"],"name":[38],"type":["int"],"align":["right"]}],"data":[{"1":"tinaj5920","2":"NA","3":"0","4":"20","5":"30.28571","6":"0.7368421","7":"14","8":"1","9":"8414","10":"348","11":"0","12":"1","13":"6","14":"8","15":"0.6190476","16":"-0.01315789","17":"4","18":"-1","19":"2918","20":"60","21":"0","22":"0","23":"0","24":"0","25":"59","26":"1","27":"0","28":"0","29":"0.3571429","30":"0","31":"1","32":"1","33":"159","34":"1","35":"0","36":"0","37":"NA","38":"0","_rn_":"1"},{"1":"tinalabina","2":"NA","3":"NA","4":"3","5":"30.50000","6":"0.3333333","7":"1","8":"0","9":"1943","10":"0","11":"0","12":"0","13":"3","14":"1","15":"3.5000000","16":"-0.16666667","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"34","26":"NA","27":"NA","28":"0","29":"0.0000000","30":"0","31":"0","32":"0","33":"0","34":"0","35":"0","36":"0","37":"NA","38":"NA","_rn_":"2"},{"1":"tinamachine","2":"22","3":"0","4":"8","5":"22.57143","6":"0.4285714","7":"1","8":"0","9":"9687","10":"194","11":"0","12":"1","13":"8","14":"0","15":"0.0000000","16":"0.00000000","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"59","26":"1","27":"0","28":"0","29":"0.5714286","30":"0","31":"0","32":"0","33":"0","34":"0","35":"0","36":"0","37":"NA","38":"0","_rn_":"3"},{"1":"tinamarriott","2":"31","3":"0","4":"0","5":"NA","6":"NA","7":"0","8":"0","9":"26863","10":"12","11":"0","12":"0","13":"2","14":"0","15":"NA","16":"NA","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"55","26":"0","27":"0","28":"0","29":"NA","30":"NA","31":"0","32":"0","33":"0","34":"0","35":"0","36":"0","37":"NA","38":"0","_rn_":"4"},{"1":"tinamausiii","2":"NA","3":"NA","4":"1","5":"NA","6":"1.0000000","7":"1","8":"0","9":"187","10":"0","11":"0","12":"0","13":"7","14":"0","15":"NA","16":"0.00000000","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"52","26":"NA","27":"NA","28":"0","29":"NA","30":"0","31":"0","32":"0","33":"0","34":"0","35":"0","36":"0","37":"NA","38":"NA","_rn_":"5"},{"1":"tinap123","2":"35","3":"0","4":"2","5":"28.00000","6":"1.0000000","7":"2","8":"0","9":"0","10":"0","11":"0","12":"0","13":"0","14":"0","15":"0.0000000","16":"0.00000000","17":"0","18":"0","19":"0","20":"0","21":"0","22":"0","23":"0","24":"0","25":"35","26":"0","27":"0","28":"0","29":"0.5000000","30":"0","31":"0","32":"0","33":"0","34":"0","35":"0","36":"0","37":"NA","38":"0","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[38]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShkYXRhX3JhdykgIyMjIyBMb29rcyBsaWtlIHRoZXJlIGFyZSBzb21lIHNpZ25pZmljYW50bHkgbmVnYXRpdmUgZGVsdGFzIHJlbGF0ZWQgdG8gZmluZHMgXG5cbmBgYCJ9 -->
+<pre class="r"><code>summary(data_raw) #### Looks like there are some significantly negative deltas related to finds 
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgbmV0X3VzZXIgICAgICAgICAgICAgIGFnZSAgICAgICAgICAgICBtYWxlICAgICAgICAgZnJpZW5kX2NudCAgICAgIGF2Z19mcmllbmRfYWdlICBhdmdfZnJpZW5kX21hbGVcbiBMZW5ndGg6MTA3MjEzICAgICAgTWluLiAgIDogOC4wMCAgIE1pbi4gICA6MC4wMCAgICBNaW4uICAgOiAgIDAuMDAgICBNaW4uICAgOiA4LjAwICAgTWluLiAgIDowLjAwMCAgXG4gQ2xhc3MgOmNoYXJhY3RlciAgIDFzdCBRdS46MjAuMDAgICAxc3QgUXUuOjAuMDAgICAgMXN0IFF1LjogICAxLjAwICAgMXN0IFF1LjoyMC45OSAgIDFzdCBRdS46MC40MDAgIFxuIE1vZGUgIDpjaGFyYWN0ZXIgICBNZWRpYW4gOjIzLjAwICAgTWVkaWFuIDoxLjAwICAgIE1lZGlhbiA6ICAgMy4wMCAgIE1lZGlhbiA6MjMuMzMgICBNZWRpYW4gOjAuNjcwICBcbiAgICAgICAgICAgICAgICAgICAgTWVhbiAgIDoyNC4zOSAgIE1lYW4gICA6MC42MiAgICBNZWFuICAgOiAgMTIuMjMgICBNZWFuICAgOjI0LjYxICAgTWVhbiAgIDowLjYzMiAgXG4gICAgICAgICAgICAgICAgICAgIDNyZCBRdS46MjcuMDAgICAzcmQgUXUuOjEuMDAgICAgM3JkIFF1LjogIDEwLjAwICAgM3JkIFF1LjoyNy4wMCAgIDNyZCBRdS46MS4wMDAgIFxuICAgICAgICAgICAgICAgICAgICBNYXguICAgOjc5LjAwICAgTWF4LiAgIDoxLjAwICAgIE1heC4gICA6NTA4OS4wMCAgIE1heC4gICA6NzkuMDAgICBNYXguICAgOjEuMDAwICBcbiAgICAgICAgICAgICAgICAgICAgTkEncyAgIDo1MDg1OSAgIE5BJ3MgICA6Mzg5NTAgICBOQSdzICAgOjEgICAgICAgICBOQSdzICAgOjIxNjI2ICAgTkEncyAgIDoxNjUxNyAgXG4gZnJpZW5kX2NvdW50cnlfY250IHN1YnNjcmliZXJfZnJpZW5kX2NudCBzb25nc0xpc3RlbmVkICAgICAgbG92ZWRUcmFja3MgICAgICAgICAgIHBvc3RzICAgICAgICAgIFxuIE1pbi4gICA6ICAwLjAwMCAgICBNaW4uICAgOiAgMC4wMDAwICAgICAgTWluLiAgIDogICAgICAwICAgTWluLiAgIDogICAgMC4wMCAgIE1pbi4gICA6ICAgIDAuMDAwICBcbiAxc3QgUXUuOiAgMS4wMDAgICAgMXN0IFF1LjogIDAuMDAwMCAgICAgIDFzdCBRdS46ICAgIDQzOSAgIDFzdCBRdS46ICAgIDAuMDAgICAxc3QgUXUuOiAgICAwLjAwMCAgXG4gTWVkaWFuIDogIDEuMDAwICAgIE1lZGlhbiA6ICAwLjAwMDAgICAgICBNZWRpYW4gOiAgIDM0MzIgICBNZWRpYW4gOiAgICA5LjAwICAgTWVkaWFuIDogICAgMC4wMDAgIFxuIE1lYW4gICA6ICAyLjc4OCAgICBNZWFuICAgOiAgMC4zMzQ4ICAgICAgTWVhbiAgIDogIDEyODY0ICAgTWVhbiAgIDogICA3Ny43NiAgIE1lYW4gICA6ICAgIDMuNzczICBcbiAzcmQgUXUuOiAgMy4wMDAgICAgM3JkIFF1LjogIDAuMDAwMCAgICAgIDNyZCBRdS46ICAxNDc4NSAgIDNyZCBRdS46ICAgNTguMDAgICAzcmQgUXUuOiAgICAwLjAwMCAgXG4gTWF4LiAgIDoxMzYuMDAwICAgIE1heC4gICA6MzA5LjAwMDAgICAgICBNYXguICAgOjEwMDAwMDAgICBNYXguICAgOjQ0MDA1LjAwICAgTWF4LiAgIDoxNTE4NS4wMDAgIFxuIE5BJ3MgICA6MSAgICAgICAgICBOQSdzICAgOjEgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiAgIHBsYXlsaXN0cyAgICAgICAgICAgICBzaG91dHMgICAgICAgICBkZWx0YTFfZnJpZW5kX2NudCAgIGRlbHRhMV9hdmdfZnJpZW5kX2FnZSBkZWx0YTFfYXZnX2ZyaWVuZF9tYWxlXG4gTWluLiAgIDogICAwLjAwMDAgICBNaW4uICAgOiAgICAwLjAwICAgTWluLiAgIDotNDg2LjAwMDAgICBNaW4uICAgOi01MC4wMDAgICAgICAgTWluLiAgIDotMSAgICAgICAgICAgIFxuIDFzdCBRdS46ICAgMC4wMDAwICAgMXN0IFF1LjogICAgMS4wMCAgIDFzdCBRdS46ICAgMC4wMDAwICAgMXN0IFF1LjogIDAuMDAwICAgICAgIDFzdCBRdS46IDAgICAgICAgICAgICBcbiBNZWRpYW4gOiAgIDAuMDAwMCAgIE1lZGlhbiA6ICAgIDIuMDAgICBNZWRpYW4gOiAgIDAuMDAwMCAgIE1lZGlhbiA6ICAwLjE0MyAgICAgICBNZWRpYW4gOiAwICAgICAgICAgICAgXG4gTWVhbiAgIDogICAwLjUzMDQgICBNZWFuICAgOiAgIDIwLjg1ICAgTWVhbiAgIDogICAwLjQ3MDcgICBNZWFuICAgOiAgMC4yMjkgICAgICAgTWVhbiAgIDogMCAgICAgICAgICAgIFxuIDNyZCBRdS46ICAgMS4wMDAwICAgM3JkIFF1LjogICAgNi4wMCAgIDNyZCBRdS46ICAgMC4wMDAwICAgM3JkIFF1LjogIDAuMzc1ICAgICAgIDNyZCBRdS46IDAgICAgICAgICAgICBcbiBNYXguICAgOjE5NDMuMDAwMCAgIE1heC4gICA6NjU4NzIuMDAgICBNYXguICAgOiA1MjEuMDAwMCAgIE1heC4gICA6IDE5LjUwMCAgICAgICBNYXguICAgOiAxICAgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICBOQSdzICAgOjE5MjcgICAgICAgTkEncyAgIDoyNiAgICAgICAgICBOQSdzICAgOjIyMDU3ICAgICAgICAgTkEncyAgIDoxNjgyNiAgICAgICAgIFxuIGRlbHRhMV9mcmllbmRfY291bnRyeV9jbnQgZGVsdGExX3N1YnNjcmliZXJfZnJpZW5kX2NudCBkZWx0YTFfc29uZ3NMaXN0ZW5lZCBkZWx0YTFfbG92ZWRUcmFja3MgXG4gTWluLiAgIDotNTIuMDAwMDAgICAgICAgICBNaW4uICAgOi0yMy4wMDAwICAgICAgICAgICAgIE1pbi4gICA6LTkzNTg0LjAgICAgIE1pbi4gICA6LTEwNDAuMDAwICBcbiAxc3QgUXUuOiAgMC4wMDAwMCAgICAgICAgIDFzdCBRdS46ICAwLjAwMDAgICAgICAgICAgICAgMXN0IFF1LjogICAgIDAuMCAgICAgMXN0IFF1LjogICAgMC4wMDAgIFxuIE1lZGlhbiA6ICAwLjAwMDAwICAgICAgICAgTWVkaWFuIDogIDAuMDAwMCAgICAgICAgICAgICBNZWRpYW4gOiAgICAgMC4wICAgICBNZWRpYW4gOiAgICAwLjAwMCAgXG4gTWVhbiAgIDogIDAuMDYxODcgICAgICAgICBNZWFuICAgOiAtMC4wMTM1ICAgICAgICAgICAgIE1lYW4gICA6ICAgNTg3LjggICAgIE1lYW4gICA6ICAgIDMuMjYyICBcbiAzcmQgUXUuOiAgMC4wMDAwMCAgICAgICAgIDNyZCBRdS46ICAwLjAwMDAgICAgICAgICAgICAgM3JkIFF1LjogICAzMTAuMCAgICAgM3JkIFF1LjogICAgMC4wMDAgIFxuIE1heC4gICA6IDMwLjAwMDAwICAgICAgICAgTWF4LiAgIDogNDMuMDAwMCAgICAgICAgICAgICBNYXguICAgOjEyOTA5Ni4wICAgICBNYXguICAgOiAxMzM4LjAwMCAgXG4gTkEncyAgIDoyNiAgICAgICAgICAgICAgICBOQSdzICAgOjI2ICAgICAgICAgICAgICAgICAgIE5BJ3MgICA6MTAwMSAgICAgICAgIE5BJ3MgICA6MjcgICAgICAgICBcbiAgZGVsdGExX3Bvc3RzICAgICAgZGVsdGExX3BsYXlsaXN0cyAgIGRlbHRhMV9zaG91dHMgICAgICAgICAgYWRvcHRlciAgICAgICAgICAgIHRlbnVyZSAgICAgICAgZ29vZF9jb3VudHJ5ICBcbiBNaW4uICAgOiAgLTYuMDAwICAgTWluLiAgIDogLTguMDAwMCAgIE1pbi4gICA6IC05NTMuMDAwICAgTWluLiAgIDowLjAwMDAwICAgTWluLiAgIDogIDAuMDAgICBNaW4uICAgOjAuMDAgICBcbiAxc3QgUXUuOiAgIDAuMDAwICAgMXN0IFF1LjogIDAuMDAwMCAgIDFzdCBRdS46ICAgIDAuMDAwICAgMXN0IFF1LjowLjAwMDAwICAgMXN0IFF1LjogMjQuMDAgICAxc3QgUXUuOjAuMDAgICBcbiBNZWRpYW4gOiAgIDAuMDAwICAgTWVkaWFuIDogIDAuMDAwMCAgIE1lZGlhbiA6ICAgIDAuMDAwICAgTWVkaWFuIDowLjAwMDAwICAgTWVkaWFuIDogMzguMDAgICBNZWRpYW4gOjAuMDAgICBcbiBNZWFuICAgOiAgIDAuMTQ2ICAgTWVhbiAgIDogIDAuMDA0MiAgIE1lYW4gICA6ICAgIDAuNzc5ICAgTWVhbiAgIDowLjA2NzI4ICAgTWVhbiAgIDogMzkuNTUgICBNZWFuICAgOjAuMzcgICBcbiAzcmQgUXUuOiAgIDAuMDAwICAgM3JkIFF1LjogIDAuMDAwMCAgIDNyZCBRdS46ICAgIDAuMDAwICAgM3JkIFF1LjowLjAwMDAwICAgM3JkIFF1LjogNTQuMDAgICAzcmQgUXUuOjEuMDAgICBcbiBNYXguICAgOjMzOTEuMDAwICAgTWF4LiAgIDoxMTYuMDAwMCAgIE1heC4gICA6MTAwMjIuMDAwICAgTWF4LiAgIDoxLjAwMDAwICAgTWF4LiAgIDoxMTEuMDAgICBNYXguICAgOjEuMDAgICBcbiBOQSdzICAgOjI3ICAgICAgICAgTkEncyAgIDoyNyAgICAgICAgIE5BJ3MgICA6MTk5NSAgICAgICAgICAgICAgICAgICAgICAgICAgTkEncyAgIDozMiAgICAgICBOQSdzICAgOjM5MTU1ICBcbiBkZWx0YTFfZ29vZF9jb3VudHJ5IGRlbHRhMl9mcmllbmRfY250ICAgZGVsdGEyX2F2Z19mcmllbmRfYWdlIGRlbHRhMl9hdmdfZnJpZW5kX21hbGUgZGVsdGEyX2ZyaWVuZF9jb3VudHJ5X2NudFxuIE1pbi4gICA6LTEgICAgICAgICAgTWluLiAgIDotMzU3LjAwMDAgICBNaW4uICAgOi01My4wMDAgICAgICAgTWluLiAgIDotMSAgICAgICAgICAgICBNaW4uICAgOi00My4wMDAwMCAgICAgICAgXG4gMXN0IFF1LjogMCAgICAgICAgICAxc3QgUXUuOiAgIDAuMDAwMCAgIDFzdCBRdS46ICAwLjAwMCAgICAgICAxc3QgUXUuOiAwICAgICAgICAgICAgIDFzdCBRdS46ICAwLjAwMDAwICAgICAgICBcbiBNZWRpYW4gOiAwICAgICAgICAgIE1lZGlhbiA6ICAgMC4wMDAwICAgTWVkaWFuIDogIDAuMjAwICAgICAgIE1lZGlhbiA6IDAgICAgICAgICAgICAgTWVkaWFuIDogIDAuMDAwMDAgICAgICAgIFxuIE1lYW4gICA6IDAgICAgICAgICAgTWVhbiAgIDogICAwLjQxMjIgICBNZWFuICAgOiAgMC4yNjAgICAgICAgTWVhbiAgIDogMCAgICAgICAgICAgICBNZWFuICAgOiAgMC4wNTY3NiAgICAgICAgXG4gM3JkIFF1LjogMCAgICAgICAgICAzcmQgUXUuOiAgIDAuMDAwMCAgIDNyZCBRdS46ICAwLjQyOSAgICAgICAzcmQgUXUuOiAwICAgICAgICAgICAgIDNyZCBRdS46ICAwLjAwMDAwICAgICAgICBcbiBNYXguICAgOiAxICAgICAgICAgIE1heC4gICA6MTI1OS4wMDAwICAgTWF4LiAgIDogNDAuMDAwICAgICAgIE1heC4gICA6IDEgICAgICAgICAgICAgTWF4LiAgIDogMzcuMDAwMDAgICAgICAgIFxuIE5BJ3MgICA6MzkzOTMgICAgICAgTkEncyAgIDo5ICAgICAgICAgICBOQSdzICAgOjIxODQzICAgICAgICAgTkEncyAgIDoxNjgwMyAgICAgICAgICBOQSdzICAgOjkgICAgICAgICAgICAgICAgXG4gZGVsdGEyX3N1YnNjcmliZXJfZnJpZW5kX2NudCBkZWx0YTJfc29uZ3NMaXN0ZW5lZCBkZWx0YTJfbG92ZWRUcmFja3MgICBkZWx0YTJfcG9zdHMgICAgICBkZWx0YTJfcGxheWxpc3RzICAgXG4gTWluLiAgIDotMjUuMDAwMDAgICAgICAgICAgICBNaW4uICAgOi0yNDA0NzkuMCAgICBNaW4uICAgOi0zMTU5LjAwMCAgIE1pbi4gICA6IC04Ni4wMDAgICBNaW4uICAgOi0zNjMuMDAwMCAgXG4gMXN0IFF1LjogIDAuMDAwMDAgICAgICAgICAgICAxc3QgUXUuOiAgICAgIDAuMCAgICAxc3QgUXUuOiAgICAwLjAwMCAgIDFzdCBRdS46ICAgMC4wMDAgICAxc3QgUXUuOiAgIDAuMDAwMCAgXG4gTWVkaWFuIDogIDAuMDAwMDAgICAgICAgICAgICBNZWRpYW4gOiAgICAgIDAuMCAgICBNZWRpYW4gOiAgICAwLjAwMCAgIE1lZGlhbiA6ICAgMC4wMDAgICBNZWRpYW4gOiAgIDAuMDAwMCAgXG4gTWVhbiAgIDogLTAuMDE0ODMgICAgICAgICAgICBNZWFuICAgOiAgICA1ODIuNCAgICBNZWFuICAgOiAgICAyLjgyNSAgIE1lYW4gICA6ICAgMC4xMzQgICBNZWFuICAgOiAgLTAuMDAxMiAgXG4gM3JkIFF1LjogIDAuMDAwMDAgICAgICAgICAgICAzcmQgUXUuOiAgICAyNjAuMCAgICAzcmQgUXUuOiAgICAwLjAwMCAgIDNyZCBRdS46ICAgMC4wMDAgICAzcmQgUXUuOiAgIDAuMDAwMCAgXG4gTWF4LiAgIDogNDkuMDAwMDAgICAgICAgICAgICBNYXguICAgOiAyNDMxMTAuMCAgICBNYXguICAgOiA1NTIxLjAwMCAgIE1heC4gICA6NDY3NC4wMDAgICBNYXguICAgOiAgMjEuMDAwMCAgXG4gTkEncyAgIDo5ICAgICAgICAgICAgICAgICAgICBOQSdzICAgOjkgICAgICAgICAgICBOQSdzICAgOjkgICAgICAgICAgIE5BJ3MgICA6OSAgICAgICAgICBOQSdzICAgOjkgICAgICAgICAgXG4gZGVsdGEyX3Nob3V0cyAgZGVsdGEyX2dvb2RfY291bnRyeVxuIE1vZGU6bG9naWNhbCAgIE1pbi4gICA6LTEgICAgICAgICBcbiBOQSdzOjEwNzIxMyAgICAxc3QgUXUuOiAwICAgICAgICAgXG4gICAgICAgICAgICAgICAgTWVkaWFuIDogMCAgICAgICAgIFxuICAgICAgICAgICAgICAgIE1lYW4gICA6IDAgICAgICAgICBcbiAgICAgICAgICAgICAgICAzcmQgUXUuOiAwICAgICAgICAgXG4gICAgICAgICAgICAgICAgTWF4LiAgIDogMSAgICAgICAgIFxuICAgICAgICAgICAgICAgIE5BJ3MgICA6Mzg5NjAgICAgICBcbiJ9 -->
+<pre><code>   net_user              age             male         friend_cnt      avg_friend_age  avg_friend_male
+ Length:107213      Min.   : 8.00   Min.   :0.00    Min.   :   0.00   Min.   : 8.00   Min.   :0.000  
+ Class :character   1st Qu.:20.00   1st Qu.:0.00    1st Qu.:   1.00   1st Qu.:20.99   1st Qu.:0.400  
+ Mode  :character   Median :23.00   Median :1.00    Median :   3.00   Median :23.33   Median :0.670  
+                    Mean   :24.39   Mean   :0.62    Mean   :  12.23   Mean   :24.61   Mean   :0.632  
+                    3rd Qu.:27.00   3rd Qu.:1.00    3rd Qu.:  10.00   3rd Qu.:27.00   3rd Qu.:1.000  
+                    Max.   :79.00   Max.   :1.00    Max.   :5089.00   Max.   :79.00   Max.   :1.000  
+                    NA&#39;s   :50859   NA&#39;s   :38950   NA&#39;s   :1         NA&#39;s   :21626   NA&#39;s   :16517  
+ friend_country_cnt subscriber_friend_cnt songsListened      lovedTracks           posts          
+ Min.   :  0.000    Min.   :  0.0000      Min.   :      0   Min.   :    0.00   Min.   :    0.000  
+ 1st Qu.:  1.000    1st Qu.:  0.0000      1st Qu.:    439   1st Qu.:    0.00   1st Qu.:    0.000  
+ Median :  1.000    Median :  0.0000      Median :   3432   Median :    9.00   Median :    0.000  
+ Mean   :  2.788    Mean   :  0.3348      Mean   :  12864   Mean   :   77.76   Mean   :    3.773  
+ 3rd Qu.:  3.000    3rd Qu.:  0.0000      3rd Qu.:  14785   3rd Qu.:   58.00   3rd Qu.:    0.000  
+ Max.   :136.000    Max.   :309.0000      Max.   :1000000   Max.   :44005.00   Max.   :15185.000  
+ NA&#39;s   :1          NA&#39;s   :1                                                                     
+   playlists             shouts         delta1_friend_cnt   delta1_avg_friend_age delta1_avg_friend_male
+ Min.   :   0.0000   Min.   :    0.00   Min.   :-486.0000   Min.   :-50.000       Min.   :-1            
+ 1st Qu.:   0.0000   1st Qu.:    1.00   1st Qu.:   0.0000   1st Qu.:  0.000       1st Qu.: 0            
+ Median :   0.0000   Median :    2.00   Median :   0.0000   Median :  0.143       Median : 0            
+ Mean   :   0.5304   Mean   :   20.85   Mean   :   0.4707   Mean   :  0.229       Mean   : 0            
+ 3rd Qu.:   1.0000   3rd Qu.:    6.00   3rd Qu.:   0.0000   3rd Qu.:  0.375       3rd Qu.: 0            
+ Max.   :1943.0000   Max.   :65872.00   Max.   : 521.0000   Max.   : 19.500       Max.   : 1            
+                     NA&#39;s   :1927       NA&#39;s   :26          NA&#39;s   :22057         NA&#39;s   :16826         
+ delta1_friend_country_cnt delta1_subscriber_friend_cnt delta1_songsListened delta1_lovedTracks 
+ Min.   :-52.00000         Min.   :-23.0000             Min.   :-93584.0     Min.   :-1040.000  
+ 1st Qu.:  0.00000         1st Qu.:  0.0000             1st Qu.:     0.0     1st Qu.:    0.000  
+ Median :  0.00000         Median :  0.0000             Median :     0.0     Median :    0.000  
+ Mean   :  0.06187         Mean   : -0.0135             Mean   :   587.8     Mean   :    3.262  
+ 3rd Qu.:  0.00000         3rd Qu.:  0.0000             3rd Qu.:   310.0     3rd Qu.:    0.000  
+ Max.   : 30.00000         Max.   : 43.0000             Max.   :129096.0     Max.   : 1338.000  
+ NA&#39;s   :26                NA&#39;s   :26                   NA&#39;s   :1001         NA&#39;s   :27         
+  delta1_posts      delta1_playlists   delta1_shouts          adopter            tenure        good_country  
+ Min.   :  -6.000   Min.   : -8.0000   Min.   : -953.000   Min.   :0.00000   Min.   :  0.00   Min.   :0.00   
+ 1st Qu.:   0.000   1st Qu.:  0.0000   1st Qu.:    0.000   1st Qu.:0.00000   1st Qu.: 24.00   1st Qu.:0.00   
+ Median :   0.000   Median :  0.0000   Median :    0.000   Median :0.00000   Median : 38.00   Median :0.00   
+ Mean   :   0.146   Mean   :  0.0042   Mean   :    0.779   Mean   :0.06728   Mean   : 39.55   Mean   :0.37   
+ 3rd Qu.:   0.000   3rd Qu.:  0.0000   3rd Qu.:    0.000   3rd Qu.:0.00000   3rd Qu.: 54.00   3rd Qu.:1.00   
+ Max.   :3391.000   Max.   :116.0000   Max.   :10022.000   Max.   :1.00000   Max.   :111.00   Max.   :1.00   
+ NA&#39;s   :27         NA&#39;s   :27         NA&#39;s   :1995                          NA&#39;s   :32       NA&#39;s   :39155  
+ delta1_good_country delta2_friend_cnt   delta2_avg_friend_age delta2_avg_friend_male delta2_friend_country_cnt
+ Min.   :-1          Min.   :-357.0000   Min.   :-53.000       Min.   :-1             Min.   :-43.00000        
+ 1st Qu.: 0          1st Qu.:   0.0000   1st Qu.:  0.000       1st Qu.: 0             1st Qu.:  0.00000        
+ Median : 0          Median :   0.0000   Median :  0.200       Median : 0             Median :  0.00000        
+ Mean   : 0          Mean   :   0.4122   Mean   :  0.260       Mean   : 0             Mean   :  0.05676        
+ 3rd Qu.: 0          3rd Qu.:   0.0000   3rd Qu.:  0.429       3rd Qu.: 0             3rd Qu.:  0.00000        
+ Max.   : 1          Max.   :1259.0000   Max.   : 40.000       Max.   : 1             Max.   : 37.00000        
+ NA&#39;s   :39393       NA&#39;s   :9           NA&#39;s   :21843         NA&#39;s   :16803          NA&#39;s   :9                
+ delta2_subscriber_friend_cnt delta2_songsListened delta2_lovedTracks   delta2_posts      delta2_playlists   
+ Min.   :-25.00000            Min.   :-240479.0    Min.   :-3159.000   Min.   : -86.000   Min.   :-363.0000  
+ 1st Qu.:  0.00000            1st Qu.:      0.0    1st Qu.:    0.000   1st Qu.:   0.000   1st Qu.:   0.0000  
+ Median :  0.00000            Median :      0.0    Median :    0.000   Median :   0.000   Median :   0.0000  
+ Mean   : -0.01483            Mean   :    582.4    Mean   :    2.825   Mean   :   0.134   Mean   :  -0.0012  
+ 3rd Qu.:  0.00000            3rd Qu.:    260.0    3rd Qu.:    0.000   3rd Qu.:   0.000   3rd Qu.:   0.0000  
+ Max.   : 49.00000            Max.   : 243110.0    Max.   : 5521.000   Max.   :4674.000   Max.   :  21.0000  
+ NA&#39;s   :9                    NA&#39;s   :9            NA&#39;s   :9           NA&#39;s   :9          NA&#39;s   :9          
+ delta2_shouts  delta2_good_country
+ Mode:logical   Min.   :-1         
+ NA&#39;s:107213    1st Qu.: 0         
+                Median : 0         
+                Mean   : 0         
+                3rd Qu.: 0         
+                Max.   : 1         
+                NA&#39;s   :38960      </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiU29jaWFsIE1lZGlhIEFuYWx5dGljcyBOb3RlYm9vayBNYXR0IgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgojIyMjIEFkZCBhbnkgTGlicyBuZWVkZWQgaGVyZQoKYGBge3J9CmxpYnJhcnkoY2FUb29scykKbGlicmFyeShjYXJldCkKbGlicmFyeShST0NSKQpsaWJyYXJ5KGdncGxvdDIpCmxpYnJhcnkoZHBseXIpCmxpYnJhcnkocnBhcnQucGxvdCkKYGBgCgojIyMjIEJyaW5naW5nIGluIHRoZSBkYXRhLCBtYWtlIHN1cmUgdGhlIGZpbGUgaXMgaW4geW91ciBhY3RpdmUgZGlyZWN0b3J5IAojIyMjIyBBbHNvIGRvdWJsZSBjaGVjayB0aGUgZmlsZSBuYW1lIGlzIGNvcnJlY3QgSGlnaF9Ob3RlX2RhdGEuY3N2CgpgYGB7cn0KcmF3X2RhdGEgPC0gcmVhZC5jc3YoIkhpZ2hfTm90ZV9kYXRhLmNzdiIpCmBgYAoKIyMjIyBJbml0YWwgZGF0YSBleHBsb3JhdGlvbiAKYGBge3J9CmhlYWQocmF3X2RhdGEpICMjIyMgd2Ugd2lsbCBuZWVkIHRvIGtlZXAgTkFzIGluIG1pbmQgKHBvdGVudGlhbCBvbWl0IGluIHNvbWUgbW9kZWxzKQpzdW1tYXJ5KHJhd19kYXRhKSAjIyMjIExvb2tzIGxpa2UgdGhlcmUgYXJlIHNvbWUgc2lnbmlmaWNhbnRseSBuZWdhdGl2ZSBkZWx0YXMgcmVsYXRlZCB0byBmaW5kcyAKYGBgCgoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiU29jaWFsIE1lZGlhIEFuYWx5dGljcyBOb3RlYm9vayBNYXR0IgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgojIyMjIEFkZCBhbnkgTGlicyBuZWVkZWQgaGVyZQoKYGBge3J9CmxpYnJhcnkoZHBseXIpCmxpYnJhcnkodGlkeXZlcnNlKQpsaWJyYXJ5KGNhVG9vbHMpCmxpYnJhcnkoY2FyZXQpCmxpYnJhcnkoUk9DUikKbGlicmFyeShnZ3Bsb3QyKQpsaWJyYXJ5KHJwYXJ0LnBsb3QpCmxpYnJhcnkocmFuZG9tRm9yZXN0KQpsaWJyYXJ5KGNhcmV0KQpsaWJyYXJ5KHJwYXJ0KQoKYGBgCgojIyMjIEJyaW5naW5nIGluIHRoZSBkYXRhLCBtYWtlIHN1cmUgdGhlIGZpbGUgaXMgaW4geW91ciBhY3RpdmUgZGlyZWN0b3J5IAojIyMjIyBBbHNvIGRvdWJsZSBjaGVjayB0aGUgZmlsZSBuYW1lIGlzIGNvcnJlY3QgSGlnaF9Ob3RlX2RhdGEuY3N2CgpgYGB7cn0KdXJsZmlsZTwtJ2h0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9TdXdob29wL3NvY2lhbF9tZWRpYV9hbmFseXRpY3NfcHJvamVjdC9tYXN0ZXIvSGlnaF9Ob3RlX2RhdGEuY3N2JwpkYXRhX3JhdzwtcmVhZC5jc3YodXJsKHVybGZpbGUpKQpgYGAKCiMjIyMgSW5pdGFsIGRhdGEgZXhwbG9yYXRpb24gCmBgYHtyfQpoZWFkKGRhdGFfcmF3KSAjIyMjIHdlIHdpbGwgbmVlZCB0byBrZWVwIE5BcyBpbiBtaW5kIChwb3RlbnRpYWwgb21pdCBpbiBzb21lIG1vZGVscykKc3VtbWFyeShkYXRhX3JhdykgIyMjIyBMb29rcyBsaWtlIHRoZXJlIGFyZSBzb21lIHNpZ25pZmljYW50bHkgbmVnYXRpdmUgZGVsdGFzIHJlbGF0ZWQgdG8gZmluZHMgCmBgYAoKCg==</div>
 
 
 
