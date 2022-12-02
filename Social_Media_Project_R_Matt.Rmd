@@ -16,6 +16,8 @@ library(rpart.plot)
 library(randomForest)
 library(caret)
 library(rpart)
+library(ggcorrplot)
+
 
 ```
 
@@ -42,6 +44,15 @@ summary(data_adopters) #### looks like adopters are older, have more friends, an
 head(data_adopters)
 ```
 
+#### Correlation Analysis
+
+```{r}
+corCancer <- cor(data_raw[2:13])
+ggcorrplot(corCancer)
+cortable <- corCancer
+cortable
+```
+
 #### Split Data into Training and Testing
 ```{r}
 sample_size = floor(0.7*nrow(data_raw))
@@ -52,8 +63,14 @@ picked = sample(seq_len(nrow(data_raw)),size = sample_size)
 train_hn =data_raw[picked,]
 test_hn =data_raw[-picked,]
 
+train_hn_final = train_hn[2:12]
+train_hn_final$adopter <- train_hn$adopter 
+test_hn_final = test_hn[2:12]
+test_hn_final$adopter = test_hn$adopter
+
+
 # randomly split data without NAs
-data_no_na  <- data_raw[complete.cases(data_raw[,0:12]),]
+data_no_na  <- data_raw[complete.cases(data_raw[,2:12]),]
 sample_size_no_na = floor(0.7*nrow(data_no_na))
 picked_no_na = sample(seq_len(nrow(data_no_na)),size = sample_size_no_na)
 train_hn_no_na =data_no_na[picked,]
@@ -68,26 +85,30 @@ test_hn_rf$adopter <- test_hn_no_na$adopter
 train_hn_rf
 ```
 
-
 ```{r}
-head(train_hn)
+head(train_hn_final)
 ```
+
+#### Logistic Regression
 
 ```{r}
 
 #### Removed posts from logi model after inital run, not significant 
 #### After removing NA adopter rows, avg male friend and shouts were not significant so I removed them
 
-logi_model = glm(adopter ~ age + male + friend_cnt + avg_friend_age + friend_country_cnt + subscriber_friend_cnt + songsListened + lovedTracks + playlists, family = binomial, data = train_hn)
+logi_model = glm(adopter ~ age + male + friend_cnt + avg_friend_age + friend_country_cnt + songsListened + lovedTracks + playlists, family = binomial, data = train_hn_final)
 summary(logi_model)
 
 #### Removed posts and avg friend male from logi model no na after inital run, not significant 
 #### After removing NA adopter rows, shouts were not significant so I removed them
+#### Depricated after seeing NAs had no impact once NA adopter rows were excluded 
 
+####### logi_model_no_na = glm(adopter ~ age + male + friend_cnt + avg_friend_age + friend_country_cnt + subscriber_friend_cnt + songsListened + lovedTracks + playlists, family = binomial, data = train_hn_no_na)
 
+#### Added second logi model to compare subscriber_friend_cnt
+logi_model_sfc = glm(adopter ~ age + male + avg_friend_age + friend_country_cnt + subscriber_friend_cnt + songsListened + lovedTracks + playlists, family = binomial, data = train_hn_final)
+summary(logi_model_sfc)
 
-logi_model_no_na = glm(adopter ~ age + male + friend_cnt + avg_friend_age + friend_country_cnt + subscriber_friend_cnt + songsListened + lovedTracks + playlists, family = binomial, data = train_hn_no_na)
-summary(logi_model_no_na)
 ```
 
 ```{r}
@@ -95,7 +116,7 @@ summary(logi_model_no_na)
 #### Once I removed the adopter NAs the other NAs had not impact on the logistic regression models, however the models are extremely poor at making a true positive prodiction (~44% accurate)
 
 #### Data w/ NAs
-pred.full = predict(logi_model, newdata=test_hn, type="response")
+pred.full = predict(logi_model, newdata=test_hn_final, type="response")
 classify.full = (pred.full > 0.1)
 
 class_prediction = factor(pred.full > 0.1, levels = c(F, T), 
@@ -108,17 +129,31 @@ cm = table(actual, class_prediction)
 cm
 
 #### Data w/o NAs
-pred.full.no.na = predict(logi_model_no_na, newdata=test_hn_no_na, type="response")
-classify.full.no.na = (pred.full > 0.1)
+#### Depricated 
+#### pred.full.no.na = predict(logi_model_no_na, newdata=test_hn_no_na, type="response")
+#### classify.full.no.na = (pred.full > 0.1)
 
-class_prediction_no_na = factor(pred.full.no.na > 0.1, levels = c(F, T), 
+#### class_prediction_no_na = factor(pred.full.no.na > 0.1, levels = c(F, T), 
+                      ####       labels = c("Freemium", "Subscriber"))
+
+#### actual_no_na = factor(test_hn_no_na$adopter, levels = c(0, 1), 
+                      #### labels = c("Freemium", "Subscriber"))
+
+#### cm_no_na = table(actual_no_na, class_prediction_no_na)
+#### cm_no_na
+
+pred.full.sfc = predict(logi_model_sfc, newdata=test_hn_final, type="response")
+classify.full.sfc = (pred.full.sfc > 0.1)
+
+class_prediction_sfc = factor(pred.full.sfc > 0.1, levels = c(F, T), 
                              labels = c("Freemium", "Subscriber"))
 
-actual_no_na = factor(test_hn_no_na$adopter, levels = c(0, 1), 
+actual_sfc = factor(test_hn$adopter, levels = c(0, 1), 
                       labels = c("Freemium", "Subscriber"))
 
-cm_no_na = table(actual_no_na, class_prediction_no_na)
-cm_no_na
+cm_sfc = table(actual_sfc, class_prediction_sfc)
+cm_sfc
+
 ```
 
 ```{r}
@@ -139,29 +174,54 @@ FNR
 ```
 
 ```{r}
-ACC_no_na = sum(diag(cm_no_na)) / sum(cm_no_na) 
-ACC_no_na 
+ACC_sfc = sum(diag(cm_sfc)) / sum(cm_sfc) 
+ACC_sfc
 
-TPR = cm_no_na[2,2] / sum(cm_no_na[2,])  
-TPR
+TPR_sfc = cm_sfc[2,2] / sum(cm_sfc[2,])  
+TPR_sfc
 
-FPR = cm_no_na[1,2] / sum(cm_no_na[1,])
-FPR
+FPR_sfc = cm_sfc[1,2] / sum(cm_sfc[1,])
+FPR_sfc
 
-TNR = cm_no_na[1,1] / sum(cm_no_na[1,]) 
-TNR
+TNR_sfc = cm_sfc[1,1] / sum(cm_sfc[1,]) 
+TNR_sfc
 
-FNR = cm_no_na[2,1] / sum(cm_no_na[2,])
-FNR
+FNR_sfc = cm_sfc[2,1] / sum(cm_sfc[2,])
+FNR_sfc
 ```
+
+
+#### CART
+
+```{r}
+#### Model Training 
+set.seed(123)
+cart_tree_1 = rpart(adopter ~.,data = train_hn_final, method = "class", cp = 0.0008)
+prp(cart_tree_1)
+```
+
+```{r}
+CART_importance_scores = cart_tree_1$variable.importance
+n_variables = 12 # how many variables to display
+barplot( tail( sort(CART_importance_scores), n_variables ),
+         beside = TRUE,
+         horiz = TRUE,
+         las=1,
+         main = paste("CART - top", n_variables, "importance scores"),
+         cex.names =.7)
+```
+
 
 #### Random Forest
 
 ```{r}
-#### This takes a few minutes to run
-hn.rf <- randomForest(adopter ~ ., 
-                        data = train_hn_rf, 
-                        importance = TRUE,
-                        proximity = TRUE)
+#### This can take a minute or two
+train_hn_final$adopter <- factor(train_hn_final$adopter)
+set.seed(51)
+rf_model <- train(adopter ~ ., data = train_hn_final, method = 'rf', trControl = trainControl(method = 'cv', number = 5))
+```
+
+```{r}
+prp(rf_model)
 ```
 
