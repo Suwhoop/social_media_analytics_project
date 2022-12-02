@@ -24,6 +24,7 @@ library(rpart)
 ```{r}
 urlfile<-'https://raw.githubusercontent.com/Suwhoop/social_media_analytics_project/master/High_Note_data.csv'
 data_raw<-read.csv(url(urlfile))
+data_raw  <- data_raw[complete.cases(data_raw[,0:23]),] ### Removing rows where adopter is NA
 ```
 
 #### Inital data exploration 
@@ -46,22 +47,54 @@ head(data_adopters)
 sample_size = floor(0.7*nrow(data_raw))
 set.seed(777)
 
-# randomly split data
+# randomly split data with NAs
 picked = sample(seq_len(nrow(data_raw)),size = sample_size)
 train_hn =data_raw[picked,]
 test_hn =data_raw[-picked,]
+
+# randomly split data without NAs
+data_no_na  <- data_raw[complete.cases(data_raw[,0:12]),]
+sample_size_no_na = floor(0.7*nrow(data_no_na))
+picked_no_na = sample(seq_len(nrow(data_no_na)),size = sample_size_no_na)
+train_hn_no_na =data_no_na[picked,]
+test_hn_no_na =data_no_na[-picked,]
 ```
+
+```{r}
+train_hn_rf <- train_hn_no_na[0:12]
+test_hn_rf <- test_hn_no_na[0:12]
+train_hn_rf$adopter <- train_hn_no_na$adopter
+test_hn_rf$adopter <- test_hn_no_na$adopter
+train_hn_rf
+```
+
 
 ```{r}
 head(train_hn)
 ```
 
 ```{r}
-logi_model = glm(adopter ~ age + male + friend_cnt + avg_friend_age + avg_friend_male + friend_country_cnt + subscriber_friend_cnt + songsListened + lovedTracks + posts + playlists + shouts, family = binomial, data = train_hn)
+
+#### Removed posts from logi model after inital run, not significant 
+#### After removing NA adopter rows, avg male friend and shouts were not significant so I removed them
+
+logi_model = glm(adopter ~ age + male + friend_cnt + avg_friend_age + friend_country_cnt + subscriber_friend_cnt + songsListened + lovedTracks + playlists, family = binomial, data = train_hn)
 summary(logi_model)
+
+#### Removed posts and avg friend male from logi model no na after inital run, not significant 
+#### After removing NA adopter rows, shouts were not significant so I removed them
+
+
+
+logi_model_no_na = glm(adopter ~ age + male + friend_cnt + avg_friend_age + friend_country_cnt + subscriber_friend_cnt + songsListened + lovedTracks + playlists, family = binomial, data = train_hn_no_na)
+summary(logi_model_no_na)
 ```
 
 ```{r}
+
+#### Once I removed the adopter NAs the other NAs had not impact on the logistic regression models, however the models are extremely poor at making a true positive prodiction (~44% accurate)
+
+#### Data w/ NAs
 pred.full = predict(logi_model, newdata=test_hn, type="response")
 classify.full = (pred.full > 0.1)
 
@@ -73,6 +106,19 @@ actual = factor(test_hn$adopter, levels = c(0, 1),
 
 cm = table(actual, class_prediction)
 cm
+
+#### Data w/o NAs
+pred.full.no.na = predict(logi_model_no_na, newdata=test_hn_no_na, type="response")
+classify.full.no.na = (pred.full > 0.1)
+
+class_prediction_no_na = factor(pred.full.no.na > 0.1, levels = c(F, T), 
+                             labels = c("Freemium", "Subscriber"))
+
+actual_no_na = factor(test_hn_no_na$adopter, levels = c(0, 1), 
+                      labels = c("Freemium", "Subscriber"))
+
+cm_no_na = table(actual_no_na, class_prediction_no_na)
+cm_no_na
 ```
 
 ```{r}
@@ -90,5 +136,32 @@ TNR
 
 FNR = cm[2,1] / sum(cm[2,])
 FNR
+```
+
+```{r}
+ACC_no_na = sum(diag(cm_no_na)) / sum(cm_no_na) 
+ACC_no_na 
+
+TPR = cm_no_na[2,2] / sum(cm_no_na[2,])  
+TPR
+
+FPR = cm_no_na[1,2] / sum(cm_no_na[1,])
+FPR
+
+TNR = cm_no_na[1,1] / sum(cm_no_na[1,]) 
+TNR
+
+FNR = cm_no_na[2,1] / sum(cm_no_na[2,])
+FNR
+```
+
+#### Random Forest
+
+```{r}
+#### This takes a few minutes to run
+hn.rf <- randomForest(adopter ~ ., 
+                        data = train_hn_rf, 
+                        importance = TRUE,
+                        proximity = TRUE)
 ```
 
